@@ -8,11 +8,13 @@ This is my build of dwm (6.3) from suckless. It contains the following patches a
 - movestack - for changing client's position through the stack
 
 ## Keybindings
+
 For keybindings, take a look at the `static Key keys[]` array in the `config.def.h` file. This build uses `Super` (Windows key) as the `MODKEY`.The keybindings are defined using the keysyms defined in the X11 protocol which can be found [here](https://cgit.freedesktop.org/xorg/proto/x11proto/tree/).
 
 This build also has some bindings which uses my own scripts (powermenu, sniping-tool, emojimenu) which can be found in my dotfiles repo.
 
 ## Commands
+
 Keybindings are bound to either internal dwm functions or the `spawn` function which takes custom commands to execute along with their arguments.
 
 `spawn` commands can be executed directly by defining them as commands and arguments like so:
@@ -25,6 +27,7 @@ SHCMD("amixer set Master 5%+ unmute && pkill -RTMIN+10 dwmblocks")
 ```
 
 ## Requirements
+
 In order to build dwm you need the Xlib header files.
 
 ## Installation
@@ -36,6 +39,7 @@ make clean install
 ```
 
 ## Running dwm
+
 Add the following line to your .xinitrc to start dwm using startx:
 ```
 exec dwm
@@ -56,6 +60,6 @@ exec dwm
 ```
 or use a status monitor like dwmblocks (refer to the suckless website for alternatives).
 
-Configuration
--------------
+## Configuration
+
 The configuration of dwm is done by creating a custom config.h and (re)compiling the source code.
