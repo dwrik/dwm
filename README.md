@@ -1,10 +1,14 @@
 # dwm - dynamic window manager
 
-This is my build of dwm (6.3) from suckless. It contains the following patches applied:
+dwm is an extremely fast, small, and dynamic window manager for X.
 
-- alpha - for transparency in status bar and border fix
-- fullgaps - for gaps in b/w clients and the desktop
+## dwrik's build
+
+This is my build of dwm (6.3) from suckless. It includes the following patches:
+
 - xrdb - loads colors from Xresources (pywal compatible)
+- alpha - for transparency in status bar and border fix
+- fullgaps - for gaps in among the clients and also the desktop
 - movestack - for changing client's position through the stack
 
 ## Keybindings
