@@ -21,7 +21,7 @@ Keybindings are bound to either internal dwm functions or the `spawn` function w
 ```
 static const char *locksessioncmd[] = { "loginctl", "lock-session", NULL };
 ```
-dwm also provides and option to execute commands in a shell like environment using the `SCHMD` macro in case shell features such as piping or conditionals are required.
+dwm also provides an option to execute commands in a shell like environment using the `SCHMD` macro in case shell features such as piping or conditionals are required.
 ```
 SHCMD("amixer set Master 5%+ unmute && pkill -RTMIN+10 dwmblocks")
 ```
