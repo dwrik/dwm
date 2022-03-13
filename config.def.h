@@ -78,9 +78,13 @@ static const char *locksessioncmd[] = { "loginctl", "lock-session", NULL };
 #include "movestack.c" /* provided by movestack patch for shifting windows through the stack */
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,              XF86XK_AudioRaiseVolume, spawn,          SHCMD("amixer set Master 5%+ unmute && pkill -RTMIN+10 dwmblocks") },
-	{ 0,              XF86XK_AudioLowerVolume, spawn,          SHCMD("amixer set Master 5%- unmute && pkill -RTMIN+10 dwmblocks") },
-	{ 0,              XF86XK_AudioMute,        spawn,          SHCMD("amixer set Master toggle && pkill -RTMIN+10 dwmblocks") },
+	{ 0,              XF86XK_AudioRaiseVolume, spawn,          SHCMD("pamixer -u -i 2 && pkill -RTMIN+10 dwmblocks") },
+	{ 0,              XF86XK_AudioLowerVolume, spawn,          SHCMD("pamixer -u -d 2 && pkill -RTMIN+10 dwmblocks") },
+	{ 0,              XF86XK_AudioMute,        spawn,          SHCMD("pamixer -t && pkill -RTMIN+10 dwmblocks") },
+	{ 0,              XF86XK_AudioPause,       spawn,          SHCMD("playerctl --all-players pause") },
+	{ 0,              XF86XK_AudioPlay,        spawn,          SHCMD("playerctl play-pause") },
+	{ 0,              XF86XK_AudioPrev,        spawn,          SHCMD("playerctl previous") },
+	{ 0,              XF86XK_AudioNext,        spawn,          SHCMD("playerctl next") },
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("brightnessctl set 2%- && pkill -RTMIN+11 dwmblocks") },
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("brightnessctl set 2%+ && pkill -RTMIN+11 dwmblocks") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = snipingtoolcmd } },
