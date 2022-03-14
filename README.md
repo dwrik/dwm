@@ -11,6 +11,7 @@ This is my build of dwm (6.3) from suckless. It includes the following patches:
 - fullgaps - for gaps in among the clients and also the desktop
 - movestack - for changing client's position through the stack
 - actualfullscreen - for enabling the actual fullscreen of the window
+- hide vacant tags - vacant tags are hidden to provide more space in statusbar
 
 ## Keybindings
 
