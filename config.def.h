@@ -73,6 +73,8 @@ static const char *powermenucmd[] = { "powermenu", NULL };
 static const char *emojimenucmd[] = { "emojimenu", NULL };
 static const char *snipingtoolcmd[] = { "sniping-tool", NULL };
 static const char *locksessioncmd[] = { "loginctl", "lock-session", NULL };
+static const char *filemanagercmd[] = { "st", "-e", "ranger", NULL };
+static const char *searchmenucmd[] = { "st", "-e", "searchmenu", NULL };
 
 #include <X11/XF86keysym.h> /* required for XF86 keys (volume, brightness etc.) */
 #include "movestack.c" /* provided by movestack patch for shifting windows through the stack */
@@ -87,6 +89,8 @@ static Key keys[] = {
 	{ 0,              XF86XK_AudioNext,        spawn,          SHCMD("playerctl next") },
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("brightnessctl set 2%- && pkill -RTMIN+11 dwmblocks") },
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("brightnessctl set 2%+ && pkill -RTMIN+11 dwmblocks") },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = filemanagercmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = searchmenucmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = snipingtoolcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = locksessioncmd } },
 	{ MODKEY,                       XK_period, spawn,          {.v = emojimenucmd } },
