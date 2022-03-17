@@ -8,10 +8,12 @@ This is my build of dwm (6.3) from suckless. It includes the following patches:
 
 - xrdb - loads colors from Xresources (pywal compatible)
 - alpha - for transparency in status bar and border fix
-- fullgaps - for gaps in among the clients and also the desktop
-- movestack - for changing client's position through the stack
+- fullgaps - for gaps in b/w the windows and the desktop
+- movestack - for moving programs through the stack
+- alwayscenter - makes all floating windows centered
 - actualfullscreen - for enabling the actual fullscreen of the window
 - hide vacant tags - vacant tags are hidden to provide more space in statusbar
+- swallow - allows spawning programs without cluttering the screen with unusable terminals
 
 ## Keybindings
 
