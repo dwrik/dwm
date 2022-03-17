@@ -36,11 +36,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",       NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox",    NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "St",         NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "FloatingSt", NULL,     NULL,           0,         1,          1,           0,        -1 },
+	{ NULL,         NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -71,13 +72,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *searchcmd[] = { "search", NULL };
 static const char *browsercmd[] = { "brave", NULL };
 static const char *powermenucmd[] = { "powermenu", NULL };
 static const char *emojimenucmd[] = { "emojimenu", NULL };
 static const char *snipingtoolcmd[] = { "sniping-tool", NULL };
 static const char *locksessioncmd[] = { "loginctl", "lock-session", NULL };
 static const char *filemanagercmd[] = { "st", "-e", "ranger", NULL };
-static const char *searchmenucmd[] = { "st", "-e", "searchmenu", NULL };
 
 #include <X11/XF86keysym.h> /* required for XF86 keys (volume, brightness etc.) */
 #include "movestack.c" /* provided by movestack patch for shifting windows through the stack */
@@ -93,11 +94,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("brightnessctl set 2%- && pkill -RTMIN+11 dwmblocks") },
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("brightnessctl set 2%+ && pkill -RTMIN+11 dwmblocks") },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = filemanagercmd } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = searchmenucmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = snipingtoolcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = locksessioncmd } },
 	{ MODKEY,                       XK_period, spawn,          {.v = emojimenucmd } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = searchcmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
